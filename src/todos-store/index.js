@@ -10,7 +10,7 @@ const store = createReduxStore('blocks-course-plugin/todos', {
 	actions,
 	selectors,
 	resolvers,
-	controls
+	controls,
 });
 
 register(store);

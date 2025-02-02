@@ -7,10 +7,9 @@ export const addTodo = (todo) => {
 	};
 };
 
-
 export const populateTodos = (todos) => {
 	return {
-	  type: POPULATE_TODOS,
-	  todos
+		type: POPULATE_TODOS,
+		todos,
 	};
-  }
+};
