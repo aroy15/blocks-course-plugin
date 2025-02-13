@@ -1,4 +1,16 @@
 <?php
+function blocks_course_register_meta() {
+	register_meta('post', '_blocks_course_post_subtitle', array(
+		'show_in_rest' => true,
+		'single' => true,
+		'type' => 'string',
+		'sanitize_callback' => 'sanitize_text_field',
+		'auth_callback' => function() {
+			return current_user_can('edit_posts');
+		}
+	));
+}
+add_action('init', 'blocks_course_register_meta');
 function blocks_course_add_meta_box() {
     add_meta_box( 
         'blocks_course_post_options_metabox', 
@@ -7,7 +19,7 @@ function blocks_course_add_meta_box() {
         'post', 
         'normal', 
         'default',
-        array('__back_compat_meta_box' => false, '__block_editor_compatible_meta_box' => true)
+        array('__back_compat_meta_box' => true, '__block_editor_compatible_meta_box' => true)
     );
 }
 
