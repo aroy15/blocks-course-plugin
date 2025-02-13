@@ -15,7 +15,8 @@
 if (!defined('ABSPATH')) {
 	exit; // Exit if accessed directly.
 }
-include_once('metabox.php');
+include_once 'metabox.php';
+include_once 'templates.php';
 
 function blocks_course_plugin_enqueue_assets()
 {
