@@ -255,10 +255,22 @@ function* getTodos() {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   getTodos: () => (/* binding */ getTodos)
+/* harmony export */   getTodos: () => (/* binding */ getTodos),
+/* harmony export */   getTodosDone: () => (/* binding */ getTodosDone),
+/* harmony export */   getTodosNumber: () => (/* binding */ getTodosNumber),
+/* harmony export */   getTodosUnDone: () => (/* binding */ getTodosUnDone)
 /* harmony export */ });
 const getTodos = state => {
   return state.items;
+};
+const getTodosNumber = state => {
+  return state.items.length;
+};
+const getTodosDone = state => {
+  return state.items.filter(todo => todo.completed).length;
+};
+const getTodosUnDone = state => {
+  return state.items.filter(todo => !todo.completed).length;
 };
 
 /***/ }),
