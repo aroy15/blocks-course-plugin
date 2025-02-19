@@ -23,11 +23,52 @@ __webpack_require__.r(__webpack_exports__);
 
 (0,_wordpress_plugins__WEBPACK_IMPORTED_MODULE_0__.registerPlugin)('blocks-course-plugin', {
   render: () => {
-    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_wordpress_editor__WEBPACK_IMPORTED_MODULE_1__.PluginSidebar, {
-      name: "meta-fields-sidebar",
-      icon: "admin-settins",
-      title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Post Options', 'blocks-course-plugin'),
-      children: "Hello World!"
+    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.Fragment, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_wordpress_editor__WEBPACK_IMPORTED_MODULE_1__.PluginDocumentSettingPanel
+      // name="meta-fields-panel"
+      , {
+        title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('My Panel', 'blocks-course-plugin'),
+        icon: "admin-collapse",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
+          children: "Document Settings Panel"
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_wordpress_editor__WEBPACK_IMPORTED_MODULE_1__.PluginPostStatusInfo, {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
+          children: "Post Status Info"
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_wordpress_editor__WEBPACK_IMPORTED_MODULE_1__.PluginPrePublishPanel, {
+        title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Pre Publish Panel', 'blocks-course-plugin'),
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
+          children: "Pre Publish Panel"
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_wordpress_editor__WEBPACK_IMPORTED_MODULE_1__.PluginPostPublishPanel, {
+        title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Post Publish Panel', 'blocks-course-plugin'),
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
+          children: "Post Publish Panel"
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_wordpress_editor__WEBPACK_IMPORTED_MODULE_1__.PluginMoreMenuItem
+      // target="blocks-course-plugin"
+      , {
+        icon: "admin-customizer",
+        onClick: () => {
+          // eslint-disable-next-line
+          alert('More Menu Item Clicked!');
+        },
+        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('More Menu Item', 'blocks-course-plugin')
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_wordpress_editor__WEBPACK_IMPORTED_MODULE_1__.PluginBlockSettingsMenuItem, {
+        icon: "admin-home",
+        label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Custom Menu Item', 'blocks-course-plugin'),
+        onClick: () => {
+          // eslint-disable-next-line
+          alert('Custom Menu Item Clicked!');
+        },
+        allowedBlocks: ['core/paragraph']
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_wordpress_editor__WEBPACK_IMPORTED_MODULE_1__.PluginSidebar, {
+        name: "meta-fields-sidebar",
+        icon: "admin-settins",
+        title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Post Options', 'blocks-course-plugin'),
+        children: "Hello World!"
+      })]
     });
   }
 });
