@@ -1,66 +1,39 @@
 import { registerPlugin } from '@wordpress/plugins';
-import {
-	PluginSidebar,
-	PluginDocumentSettingPanel,
-	PluginPostStatusInfo,
-	PluginPrePublishPanel,
-	PluginPostPublishPanel,
-	PluginMoreMenuItem,
-	PluginBlockSettingsMenuItem,
-} from '@wordpress/editor';
+import { PluginSidebar } from '@wordpress/editor';
+import { PanelBody, TextControl } from '@wordpress/components';
+import { useSelect, useDispatch } from '@wordpress/data';
 import { __ } from '@wordpress/i18n';
+
+const MetaFieldsInputs = () => {
+	const subtitleValue = useSelect((select) => {
+		return select('core/editor').getEditedPostAttribute('meta')
+			._blocks_course_post_subtitle;
+	});
+	const { editPost } = useDispatch('core/editor');
+	return (
+		<PanelBody title={__('Sub-title options', 'blocks-course-plugin')}>
+			<TextControl
+				__nextHasNoMarginBottom
+				label={__('Sub-title', 'blocks-course-plugin')}
+				value={subtitleValue}
+				onChange={(value) => {
+					editPost({ meta: { _blocks_course_post_subtitle: value } });
+				}}
+			/>
+		</PanelBody>
+	);
+};
 
 registerPlugin('blocks-course-plugin', {
 	render: () => {
 		return (
-			<>
-				<PluginDocumentSettingPanel
-					// name="meta-fields-panel"
-					title={__('My Panel', 'blocks-course-plugin')}
-					icon="admin-collapse"
-				>
-					<p>Document Settings Panel</p>
-				</PluginDocumentSettingPanel>
-				<PluginPostStatusInfo>
-					<p>Post Status Info</p>
-				</PluginPostStatusInfo>
-				<PluginPrePublishPanel
-					title={__('Pre Publish Panel', 'blocks-course-plugin')}
-				>
-					<p>Pre Publish Panel</p>
-				</PluginPrePublishPanel>
-				<PluginPostPublishPanel
-					title={__('Post Publish Panel', 'blocks-course-plugin')}
-				>
-					<p>Post Publish Panel</p>
-				</PluginPostPublishPanel>
-				<PluginMoreMenuItem
-					// target="blocks-course-plugin"
-					icon="admin-customizer"
-					onClick={() => {
-						// eslint-disable-next-line
-						alert('More Menu Item Clicked!');
-					}}
-				>
-					{__('More Menu Item', 'blocks-course-plugin')}
-				</PluginMoreMenuItem>
-				<PluginBlockSettingsMenuItem
-					icon="admin-home"
-					label={__('Custom Menu Item', 'blocks-course-plugin')}
-					onClick={() => {
-						// eslint-disable-next-line
-						alert('Custom Menu Item Clicked!');
-					}}
-					allowedBlocks={['core/paragraph']}
-				/>
-				<PluginSidebar
-					name="meta-fields-sidebar"
-					icon="admin-settins"
-					title={__('Post Options', 'blocks-course-plugin')}
-				>
-					Hello World!
-				</PluginSidebar>
-			</>
+			<PluginSidebar
+				name="meta-fields-sidebar"
+				icon="admin-settins"
+				title={__('Post Options', 'blocks-course-plugin')}
+			>
+				<MetaFieldsInputs />
+			</PluginSidebar>
 		);
 	},
 });
